@@ -4,6 +4,7 @@ import CharacterCard from "./CharacterCard";
 export default function SearchForm(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  console.log(props.characterData);
 
   useEffect(() => {
     const results = props.characterData.filter(character =>

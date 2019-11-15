@@ -16,7 +16,7 @@ export default function CharacterList() {
   const [characterData, setCharacterData] = useState([]);
 
   useEffect(() => {
-    axios.get("https://rickandmortyapi.com/api/character/")
+    axios.get("https://rick-api.herokuapp.com/api/character/")
     .then(response => {
       setCharacterData(response.data.results)
     })
@@ -30,14 +30,14 @@ export default function CharacterList() {
   return (
     <ListWrapper>
       <SearchForm 
-      characters={characterData.map(character => character.name)}/>
-      {characterData.map(character => (
+      characterData={characterData} />
+      {/* {characterData.map(character => (
         <CharacterCard 
           charName={character.name}
           charSpecies={character.species}
           charOrigin={character.origin.name}
           />
-      ))}
+      ))} */}
     </ListWrapper>
   );
 }
