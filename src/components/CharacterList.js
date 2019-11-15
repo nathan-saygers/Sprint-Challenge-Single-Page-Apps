@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CharacterCard from "./CharacterCard";
 import styled from "styled-components";
 import SearchForm from "./SearchForm";
-
-const ListWrapper = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  
-`
 
 export default function CharacterList() {
   
@@ -28,7 +20,7 @@ export default function CharacterList() {
   console.log(characterData);
 
   return (
-    <ListWrapper>
+    <div>
       <SearchForm 
       characterData={characterData} />
       {/* {characterData.map(character => (
@@ -38,6 +30,6 @@ export default function CharacterList() {
           charOrigin={character.origin.name}
           />
       ))} */}
-    </ListWrapper>
+    </div>
   );
 }

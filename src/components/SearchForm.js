@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import CharacterCard from "./CharacterCard";
+import CharacterCards from "./CharacterCards";
 
 export default function SearchForm(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  console.log(props.characterData);
+  const [isSearching, setIsSearching] = useState(false);
+  
+  console.log("Character Data", props.characterData);
 
   useEffect(() => {
     const results = props.characterData.filter(character =>
@@ -15,7 +17,10 @@ export default function SearchForm(props) {
 
   const handleChange = e => {
     setSearchTerm(e.target.value);
+    setIsSearching(true);
   };
+
+  console.log("Search Results", searchResults);
 
   return (
     <section className="search-form">
@@ -30,20 +35,8 @@ export default function SearchForm(props) {
           value={searchTerm}
         />
      </form>
-     <div>
-        <ul>
-          {searchResults.map(character => (
-            <li key={character}>
-              {props.characterData.map(character => (
-                <CharacterCard 
-                  charName={character.name}
-                  charSpecies={character.species}
-                  charOrigin={character.origin.name}
-                  />
-              ))}
-            </li>
-          ))}
-        </ul>
+      <div>
+        {isSearching ? <CharacterCards characterData={searchResults}/> : <CharacterCards characterData={props.characterData}/> }
       </div>
     </section>
   );
