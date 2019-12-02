@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: This method of routing loads the entire app upfront and quickly displays various components with no additional load time.
 
 ## Project Set Up
 
